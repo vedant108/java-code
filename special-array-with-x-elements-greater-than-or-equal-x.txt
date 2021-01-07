@@ -1,0 +1,15 @@
+class Solution {
+    public int specialArray(int[] nums) {
+        int temp = 1;
+        Arrays.sort(nums);
+        while(temp<=nums.length){
+            int cnt = 0;
+            for(int in : nums){
+                if(in>=temp) cnt++;
+            }
+            if(cnt == temp) return temp;
+            temp++;
+        }
+        return -1;
+     }
+}

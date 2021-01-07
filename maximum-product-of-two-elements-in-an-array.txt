@@ -1,0 +1,39 @@
+class Solution {
+    public int maxProduct(int[] nums) {
+    int i,index1, index2; 
+           
+          Initialize maximum element 
+         int max = nums[0]; 
+            index1= 0;
+          Traverse array elements from second and 
+          compare every element with current max   
+         for (i = 1; i  nums.length; i++)
+            if (nums[i]  max) {
+                max = nums[i]; 
+                index1 = i;    
+            }
+        
+        int max1; 
+        if(index1!=0){
+            index2 = 0;
+            max1 =nums[0];
+        }
+        else{
+            index2= 1;
+            max1= nums[1];
+        }
+        
+        
+        for (int j=index2; jnums.length; j++){
+            if( nums[j]max1){
+                if(j == index1)
+                    continue;
+                else{
+                max1= nums[j];
+                index2= j;
+                }
+            }
+        }
+        return (nums[index1]-1)(nums[index2]-1);
+    }
+}

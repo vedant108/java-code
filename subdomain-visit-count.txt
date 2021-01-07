@@ -1,0 +1,21 @@
+class Solution {
+    public List<String> subdomainVisits(String[] cpdomains) {
+        Map<String, Integer> out = new HashMap<>();
+        for(String str : cpdomains){
+            String[] val = str.split(" ");
+            String[] domains = val[1].split("\\.");
+            int cnt = Integer.valueOf(val[0]);
+            String now = "";
+            for(int i= domains.length-1;i>=0; i--){
+                now = domains[i] + (i <domains.length -1 ? "." : "") + now;
+                out.put(now,  out.getOrDefault(now,0) + cnt);
+            }
+        }
+        
+        List<String> ret = new LinkedList<String>();
+        for(String st : out.keySet()){
+            ret.add(out.get(st) + " " + st); 
+            }
+        return ret;
+    }
+}

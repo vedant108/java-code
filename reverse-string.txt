@@ -1,0 +1,26 @@
+class Solution {
+    public void reverseString(char[] s) {
+        // StringBuilder sb = new StringBuilder();
+        // String out = String.valueOf(s);
+        int l=0, r = s.length - 1;
+        char a;
+        
+        while(l<r){
+            a = s[l];
+            s[l] = s[r];
+            s[r] = a;
+            ++l;
+            --r;
+        }
+        
+//         for(int i =s.length -1; i>((s.length)/2) -1; i--){
+//             a = s[i];
+//             b = s[i-n];
+//             s[i]= b;
+//             s[i-n] = a;
+//             n -= 2;
+//         }
+    
+       // return null;
+    }
+}

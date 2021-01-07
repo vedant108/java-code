@@ -1,0 +1,31 @@
+class Solution {
+    public int[] kWeakestRows(int[][] mat, int k) {
+        int count=0;
+       PriorityQueue<int[]> out = new PriorityQueue<>((a, b) -> a[0] != b[0] ? a[0] - b[0] : a[1] - b[1]);
+        for(int i=0; i<mat.length; i++){
+            for(int j=0; j<mat[i].length; j++){
+                if(mat[i][j] == 1){
+                    count++;
+                        if(j != mat[i].length-1){
+                        continue;
+                        }
+                    }
+                else{
+                    out.add(new int[]{count, i});
+                    count = 0;
+                    break;
+                }
+                out.add(new int[]{count, i});
+                count =0;
+            }
+        }
+        int[] ret = new int[k];
+        int n= 0;
+        while(k>0){
+            ret[n]= out.poll()[1];
+            n++;
+            k--;
+        }
+     return ret;   
+    }
+}

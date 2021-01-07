@@ -1,0 +1,11 @@
+class Solution {
+    public int countPrimeSetBits(int L, int R) {
+        List<Integer> prime = new ArrayList<>(Arrays.asList(2,3,5,7,11,13,17,19));
+        int ret=0; 
+        for(int i= L ; i<=R; i++){
+            int cnt = Integer.bitCount(i);
+            if(prime.contains(cnt)) ret++;
+        }
+        return ret;
+    }
+}

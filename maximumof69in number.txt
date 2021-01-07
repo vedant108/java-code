@@ -1,0 +1,29 @@
+class Solution {
+    public int maximum69Number (int num) {
+        int Number = 0;
+        // int final_number=0;
+        StringBuffer sb = new StringBuffer();
+
+        ArrayList<Integer> Digits = new ArrayList<Integer>();
+        while (num>0){
+            Number  = num%10;
+            Digits.add(Number);
+            num = num/10;
+        }
+        Integer[] arr = new Integer[Digits.size()]; 
+        arr = Digits.toArray(arr);
+        
+        for (int i=arr.length-1 ; i>=0 ;i--){
+            if (arr[i] == 6){
+                arr[i] = 9;
+                break;
+            }
+        }
+        for (int j=arr.length-1 ; j>=0 ;j--){
+             sb.append(arr[j]);
+        }
+        String final_number = sb.toString();
+        int finalnumber =Integer.parseInt(final_number);  
+        return finalnumber;
+    }
+}

@@ -1,0 +1,17 @@
+class Solution {
+    public double trimMean(int[] arr) {
+        Arrays.sort(arr);
+        int n = arr.length;
+        double per = Math.round(0.05*n); 
+        for(int i =0; i<per; i++){
+            arr[i]= 0;
+            arr[n-1-i]= 0;
+            }
+        double sum =0;
+        for(int in : arr){
+            sum += in;
+        }
+        double mean = sum/(n-2*per);
+        return mean;
+    }
+}

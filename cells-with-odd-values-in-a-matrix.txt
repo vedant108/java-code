@@ -1,0 +1,19 @@
+class Solution {
+    public int oddCells(int n, int m, int[][] indices) {
+       int totalodds = 0;
+        int[] row = new int [n];
+        int[] col = new int [m];
+        for(int ser[] : indices)
+        {
+            row[ser[0]]++;
+            col[ser[1]]++;
+        }    
+        for(int i=0;i<n;i++)
+            for(int j=0;j<m;j++)
+            {
+                if((row[i]+col[j])%2!=0)
+                    totalodds++;
+            }        
+        return totalodds;
+    }
+}

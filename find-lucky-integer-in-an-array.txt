@@ -1,0 +1,26 @@
+class Solution {
+    public int findLucky(int[] arr) {
+        Arrays.sort(arr);
+        int temp = arr[arr.length-1], cnt=1, ret = -1; 
+        for(int i=arr.length-2 ; i>=0; i--){
+            if(arr[i] == temp){
+                cnt++;
+                if(i== 0 && cnt == temp){
+                    return temp;
+                }
+            }
+            else{
+                if(cnt == temp){
+                    // ret = temp;
+                    return temp;
+                }
+                cnt= 1;
+                temp = arr[i];
+                if(i==0 && temp == 1)  {
+                    return temp;
+                }
+            }
+        }
+        return ret;    
+    }
+}

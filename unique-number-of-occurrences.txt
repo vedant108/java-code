@@ -1,0 +1,23 @@
+class Solution {
+    public boolean uniqueOccurrences(int[] arr) {
+        int count=1;
+        List<Integer> out =new ArrayList<Integer>();
+        Arrays.sort(arr);
+        if(arr.length!=2){
+        for(int i=1; i< arr.length; i++){
+            if(arr[i-1]==arr[i])
+                count++;
+            else{
+                if(out.contains(count)== false)
+                    out.add(count);
+                else
+                    return false;
+                count=1;
+            }
+        }
+        }
+        else
+            return false;
+        return true;
+    }
+}

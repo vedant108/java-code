@@ -1,0 +1,15 @@
+class Solution {
+    public String reformatDate(String date) {
+        List<String> month = Arrays.asList("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec");
+        String[] d =  date.split(" ");
+        String a,b;
+        if((month.indexOf(d[1])+1) < 10)  a = "0" +(month.indexOf(d[1])+1);
+        else a = (month.indexOf(d[1])+1) +"";
+        
+        if(Integer.parseInt(d[0].substring(0,d[0].length()-2)) < 10) b = "0" + d[0].substring(0,d[0].length()-2) ; 
+        else b= d[0].substring(0,d[0].length()-2);
+        
+        return d[2]+"-"+a+"-"+b; 
+        
+    }
+}

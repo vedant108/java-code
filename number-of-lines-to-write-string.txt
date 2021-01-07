@@ -1,0 +1,19 @@
+class Solution {
+    public int[] numberOfLines(int[] widths, String s) {
+        int times=1, len = 0;
+        for(char c : s.toCharArray()){
+            int temp = widths[c - 'a'];
+            if(len+ temp<=100){
+                len += temp;
+            }
+            else{
+                times++;
+                len = temp;
+            }
+        }
+        int[] out = new int[2];
+        out[0] = times;
+        out[1] = len;
+        return out;
+    }
+}

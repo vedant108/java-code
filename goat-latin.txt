@@ -1,0 +1,29 @@
+class Solution {
+    public String toGoatLatin(String S) {
+        List<Character> vowel  = new ArrayList<>(Arrays.asList('a','e','i','o','u','A','E','I','O','U'));
+        String[] all = S.split(" ");
+        String out = "";
+        int cnt=0;
+        for(String cur : all){
+            if(vowel.contains(cur.charAt(0))){
+                cur = cur.concat("ma");
+            }
+            else{
+                String c = Character.toString(cur.charAt(0)); 
+                cur = cur.replaceFirst(c , "");
+                cur = cur.concat(c).concat("ma");
+            }
+            
+            int temp = cnt; 
+            
+            while(temp-->=0){
+                cur = cur.concat("a");
+            }
+            out = out.concat(cur + " ");
+            cnt++;
+        }
+        
+        return out.trim();
+    }
+               
+}

@@ -1,0 +1,56 @@
+class Solution {
+    public int[] createTargetArray(int[] nums, int[] index) {
+        int target[] = new int[nums.length];
+//         int temp[] = new int[nums.length];
+//         int pos ;
+          for (int i = 0; i < nums.length; ++i) 
+        {
+            if (index[i] == i) 
+            {
+                target[index[i]] = nums[i];
+            }
+//        for (int k=0; k<=nums.length-1;k++){
+//            pos = index[k]; 
+//            for (int j =0; j<= target.length-1; j++){
+//                 temp[j] = target[j];
+//             }
+//         for (int i=0; i<nums.length-1; i++ ){
+            
+          
+
+        
+              
+//            }
+        // int[] target = new int[nums.length];
+            else 
+            {  // index[i] < i
+                int temp;
+                for (int j = index[i]; j < i+1; ++j) 
+                {
+                    temp = target[j];
+                    target[j] = nums[i];
+                    nums[i] = temp;
+                }
+            }
+              //             // if (i == 0){
+//             //     temp[i] = nums[i];
+//             //}
+//                if(i < pos-1){
+//                    target[i] = temp[i];
+//                }
+//                if (i== pos){
+//                    target[i] = nums[k];
+//                }
+//                if (i > pos){
+//                    target[i+1] = temp[i];
+//                }
+            
+        }
+        
+        return target;
+    }
+      
+        
+    //     return target;
+    // }
+}

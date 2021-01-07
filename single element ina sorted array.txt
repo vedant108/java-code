@@ -1,0 +1,15 @@
+class Solution {
+    public int singleNonDuplicate(int[] nums) {
+    int lower = 0, upper = nums.length - 1;
+    while(lower < upper) {
+      int mid = (lower + upper)/2;
+      if(mid%2 ==0 && nums[mid] != nums[mid+1]) 
+        upper = mid;
+      else if(mid%2 != 0 && nums[mid] != nums[mid-1])
+        upper = mid;
+      else 
+        lower = mid +1;
+    }
+    return nums[upper];
+ }  
+}

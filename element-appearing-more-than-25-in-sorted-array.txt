@@ -1,0 +1,14 @@
+class Solution {
+    public int findSpecialInteger(int[] arr) {
+        int n = (arr.length / 4);
+        int temp=arr[0];
+        int cnt= 0;
+        for(int in : arr){
+            if(in == temp) cnt++;
+            else cnt = 1;
+            temp =in;
+            if(cnt > n) return in;
+        }
+        return 0;
+    }
+}

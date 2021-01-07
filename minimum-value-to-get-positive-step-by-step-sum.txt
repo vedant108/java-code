@@ -1,0 +1,21 @@
+class Solution {
+    public int minStartValue(int[] nums) {
+        int ret = 0;     
+        for(int i=1; i<Integer.MAX_VALUE;i++){
+            int fail =0;
+            int sum=i;
+            for(int in : nums){
+                 sum = sum + in;
+                 if(sum<1){
+                   fail=1;
+                   break;
+               }
+             }
+            if(fail == 0){
+                ret = i;
+                break;
+            }
+        }
+        return ret;
+    }
+}

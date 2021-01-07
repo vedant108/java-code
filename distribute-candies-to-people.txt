@@ -1,0 +1,23 @@
+class Solution {
+    public int[] distributeCandies(int candies, int num_people) {
+        int[] ret = new int[num_people];
+        int turn=0, round=0;
+        while(candies>0){
+            if(candies >= (turn+1)+ round*num_people){
+                ret[turn] += (turn+1)+ round*num_people;
+                candies -= (turn+1) + round*num_people;
+            } 
+            else {
+                ret[turn] += candies;
+                candies = 0;
+            }
+            turn++;
+            if(turn-1 ==num_people-1){
+                turn =0;
+                round++;
+            }
+            
+        }
+        return ret;
+    }
+}

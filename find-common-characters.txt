@@ -1,0 +1,25 @@
+class Solution {
+    public List<String> commonChars(String[] A) {
+        List<String> out =  new LinkedList<>();
+        int[] num = new int[26];   
+        for(int i=0; i<A[0].length(); i++){
+            num[A[0].charAt(i) - 'a']++;
+        }
+        for(int i=0; i<A.length; i++){
+            int[] cur = new int[26];
+            for(int j=0; j<A[i].length(); j++){
+                cur[A[i].charAt(j) - 'a']++;
+                }
+            for(int m=0; m<num.length;m++){
+            if(cur[m]<num[m]) num[m]= cur[m];
+        }
+    }
+        for(int i = 0; i < 26; i++) {
+            
+            for(int j = 0; j < num[i]; j++) {
+                out.add(Character.toString((char) ('a' + i)));
+            }
+        }
+        return out;
+    }
+}

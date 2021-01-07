@@ -1,0 +1,34 @@
+class Solution {
+    public int repeatedNTimes(int[] A) {
+        
+        Arrays.sort(A);
+        int n = A.length; 
+        System.out.println(A.length);
+        int[] F = new int[(n)/2];
+		int[] S = new int[(n)/2];
+
+		System.arraycopy(A, 0, F, 0, F.length);
+		System.arraycopy(A, F.length, S, 0, S.length);
+
+        
+        // for(int i=1; i<A.length; i++){
+                  System.out.println(S[0]);
+        // }
+            //             if(A[cur]==A[i]){
+//                 out = A[i];    
+//                 break;
+//             }
+//            else{
+               
+//                cur= i;
+//            }
+      
+        if(F[F.length-1] == F[F.length-2]){
+            return F[F.length-1]; 
+        }
+        else{
+            return S[0];
+        }
+                
+    }
+}

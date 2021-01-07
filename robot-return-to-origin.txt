@@ -1,0 +1,25 @@
+class Solution {
+    public boolean judgeCircle(String moves) {
+        int len = moves.length();
+        int count= 0,count1= 0,count2= 0;
+        if(len%2!=0)
+            return false;
+        else{
+            char[] ch = moves.toCharArray();
+            for(int i=0;i<len; i++){
+                if(ch[i]=='U'){
+                    count1++;}
+                if(ch[i]=='D'){
+                    count1--;}
+                if(ch[i]=='R'){
+                    count2++;}
+                if(ch[i]=='L' ){
+                    count2--;}
+            }
+            count= Math.abs(count1)+Math.abs(count2);
+            return (count==0)? true :false;
+        }
+         
+           
+    }
+}

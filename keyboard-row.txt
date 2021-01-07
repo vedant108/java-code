@@ -1,0 +1,34 @@
+class Solution {
+    public String[] findWords(String[] words) {
+        HashMap<Integer, List<Character>> use = new HashMap<>();
+        List<Character> first = Arrays.asList('q','w','e','r','t','y','u','i','o','p');
+        List<Character> sec = Arrays.asList('a','s','d','f','g','h','j','k','l');
+        List<Character> third = Arrays.asList('z','x','c','v','b','n','m');
+        use.put(1,first);
+        use.put(2, sec);
+        use.put(3, third);
+        List<String> ret = new ArrayList<>();
+        for(String str : words){
+            char  c = Character.toLowerCase(str.charAt(0));
+            int ite = 0;
+            for(int i=1; i<4; i++){
+                if(use.get(i).contains(c)){
+                    ite = i;
+                    break;
+                    }
+            }
+                int err= 0;
+                for(char in : str.toCharArray()){
+                    if(use.get(ite).contains(Character.toLowerCase(in))) continue;
+                    else {
+                         err= 1;
+                         break;
+                    } 
+                }
+                if(err ==0){
+                    ret.add(str);
+                }
+            }
+        return ret.toArray(new String[0]);
+        }
+}

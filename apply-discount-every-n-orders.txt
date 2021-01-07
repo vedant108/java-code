@@ -1,0 +1,31 @@
+class Cashier {
+
+    public int cnt = 0, n, discount;
+    public int[] products;
+    public int[] prices;
+    public HashMap<Integer, Integer> val = new HashMap<>();
+    public Cashier(int n, int discount, int[] products, int[] prices) {
+        
+        this.n  = n;
+        this.discount = discount;
+        for(int i= 0; i<products.length; i++){
+            val.put(products[i], prices[i]);
+        }
+    }
+    
+    public double getBill(int[] product, int[] amount) {
+        double bill = 0.0;
+        for(int i =0; i<product.length; i++){
+            bill += val.get(product[i])*amount[i];
+        }
+        cnt++;
+        return cnt%n==0 ? bill*(1 - discount*0.01) :bill;
+    }
+        
+}
+
+/**
+ * Your Cashier object will be instantiated and called as such:
+ * Cashier obj = new Cashier(n, discount, products, prices);
+ * double param_1 = obj.getBill(product,amount);
+ */

@@ -1,0 +1,12 @@
+class Solution {
+    public String[] findOcurrences(String text, String first, String second) {
+        List<String> out = new ArrayList<>();
+        String[] use = text.split(" ");
+        for(int i =0; i<use.length-2; i++){
+            if(use[i].equals(first) && use[i+1].equals(second) ){
+                out.add(use[i+2]);
+            }   
+        }
+        return  out.toArray(new String[out.size()]);
+    }
+}

@@ -1,0 +1,14 @@
+class Solution {
+    public String destCity(List<List<String>> paths) {
+        HashSet<String> set = new HashSet<String>();
+        for(List<String> cities : paths){
+            set.add(cities.get(0));
+        }
+        for(List<String> cities : paths){
+            if(set.contains(cities.get(1)) == false){
+                return cities.get(1);
+            }
+        }    
+    return null;
+    }
+}

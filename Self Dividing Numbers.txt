@@ -1,0 +1,20 @@
+class Solution {
+    public List<Integer> selfDividingNumbers(int left, int right) {
+        List<Integer> out = new ArrayList<>();
+        int digit;
+        for(int i = left; i<= right; i++){
+            char [] chars = String.valueOf(i).toCharArray();
+            for(int j=0; j<chars.length; j++){         
+               if(chars[j]!='0' && i%(chars[j]-'0')==0 ){
+                   if(j == chars.length-1){
+                       out.add(i);
+                   }
+               }
+            else{
+                break;
+            }
+          }
+        }
+        return out;
+    }
+}

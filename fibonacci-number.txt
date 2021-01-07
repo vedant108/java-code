@@ -1,0 +1,24 @@
+class Solution {
+    public int fib(int N) {
+
+//         return F(N);
+        
+//     }
+    
+//     public int  F(int num){
+//         int ret = 0;
+//         if(num ==0) return 0;
+//         if(num ==1) return 1;
+//         ret = F(num-1) + F(num-2); 
+//         return ret;
+//     }
+    int[] temp = new int[31];
+        temp[0]= 0;
+        temp[1] = 1;
+        for(int i=2;i<=30; i++){
+            int sum = temp[i-2]+ temp[i-1];
+            temp[i]=sum;  
+        }
+    return temp[N];
+    }
+}
