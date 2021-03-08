@@ -1,0 +1,10 @@
+class Solution {
+    public int totalMoney(int n) {
+        int sum = 1, mon = 1;        
+        for(int i= 1; i<n ; i++){
+            if(i%7 == 0) mon++;
+            sum += (i%7) + mon; 
+        }
+        return sum;
+    }
+}
